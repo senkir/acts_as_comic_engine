@@ -2,8 +2,7 @@ class CreateComics < ActiveRecord::Migration
   def self.up
     create_table :comics do |t|
       t.string :comic_name
-      t.string :page_path
-      t.string :banner_path
+      t.string :s3_prefix
       t.date :created_on
       t.date :modified_on
 
