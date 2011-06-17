@@ -19,8 +19,9 @@ gem 'mysql2', '< 0.3'
 
 # Bundle the extra gems:
 gem 'devise' # Devise must be required before RailsAdmin
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'haml'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git' #admin panel
+gem 'haml' #easier views
+gem 'carrierwave' #file uploads
 
 # gem 'bj'
 # gem 'nokogiri'
