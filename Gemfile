@@ -20,8 +20,8 @@ gem 'mysql2', '< 0.3'
 # Bundle the extra gems:
 gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'haml'
 
-#gem "rake"
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
