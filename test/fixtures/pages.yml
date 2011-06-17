@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  filename: MyString
+  created_on: 2011-06-16
+  modified_on: 2011-06-16
+  is_shown: false
+  sequence: 1
+  comic_id: 1
+
+two:
+  title: MyString
+  filename: MyString
+  created_on: 2011-06-16
+  modified_on: 2011-06-16
+  is_shown: false
+  sequence: 1
+  comic_id: 1
