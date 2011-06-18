@@ -22,7 +22,7 @@ gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git' #admin panel
 gem 'haml' #easier views
 gem 'carrierwave' #file uploads
-#get 'fog'
+gem 'fog'
 
 # gem 'bj'
 # gem 'nokogiri'

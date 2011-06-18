@@ -1,4 +1,16 @@
 Spidermuffin::Application.routes.draw do
+  get "comics/show"
+
+  get "comics/index"
+
+  get "pages/show"
+
+  get "pages/index"
+
+  get "comics/recent"
+
+  get "comics/all_comics"
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -12,6 +24,10 @@ Spidermuffin::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
+  resources :comics, :only => [:show, :index] do
+    resources :pages, :only => [:show, :index]
+  end
+  
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
@@ -50,7 +66,7 @@ Spidermuffin::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "main#recent"
 
   # See how all your routes lay out with "rake routes"
 
