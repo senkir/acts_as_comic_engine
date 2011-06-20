@@ -5,7 +5,7 @@ class CreateComicAssets < ActiveRecord::Migration
       t.string :image
       t.date :created_on
       t.date :modified_on
-      t.integer :comic_id
+      t.string :comic_oid
 
       t.timestamps
     end
