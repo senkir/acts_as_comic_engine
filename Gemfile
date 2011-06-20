@@ -23,6 +23,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git' #admin pane
 gem 'haml' #easier views
 gem 'carrierwave' #file uploads
 gem 'fog'
+gem 'aws'
 
 # gem 'bj'
 # gem 'nokogiri'

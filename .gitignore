@@ -7,3 +7,4 @@ config/database.yml
 db/seeds.rb
 db/schema.rb
 config/initializers/carrierwave.rb
+railsServer.sh
