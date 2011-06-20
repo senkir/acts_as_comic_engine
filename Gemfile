@@ -18,12 +18,21 @@ gem 'mysql2', '< 0.3'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
+
+#Authentication
 gem 'devise' # Devise must be required before RailsAdmin
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git' #admin panel
-gem 'haml' #easier views
+
+#Views
+gem 'haml' #easier view building
+
+#File Handling
 gem 'carrierwave' #file uploads
-gem 'fog'
-gem 'aws'
+gem 'fog' #supplemental gem for Amazon services
+gem 'aws' #required for Amazon services
+
+#Testing
+gem 'cucumber'
 
 # gem 'bj'
 # gem 'nokogiri'

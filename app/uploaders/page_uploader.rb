@@ -13,17 +13,19 @@ class PageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    nil
+    "#{model.class.to_s.underscore}/#{model.id}"
   end
-
+  def cache_dir
+    "#{Rails.root}/tmp/uploads" # for heroku read-only filesystem
+                                # see http://codingfrontier.com/carrierwave-on-heroku
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
   
   def s3_bucket 
-    # ... something dynamic here 
+    "#{model.comic_guid}"
   end 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
