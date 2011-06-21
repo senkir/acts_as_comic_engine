@@ -1,7 +1,7 @@
 class CreateComicAssetTypes < ActiveRecord::Migration
   def self.up
     create_table :comic_asset_types do |t|
-      t.string :type
+      t.string :name
 
       t.timestamps
     end

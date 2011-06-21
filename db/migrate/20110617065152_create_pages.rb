@@ -7,7 +7,7 @@ class CreatePages < ActiveRecord::Migration
       t.date :modified_on
       t.boolean :is_shown
       t.integer :sequence
-      t.string :comic_oid
+      t.integer :comic_id
 
       t.timestamps
     end

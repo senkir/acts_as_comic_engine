@@ -3,23 +3,22 @@ RailsAdmin.config do |config|
   config.excluded_models = [User]
   
   config.model Page do 
+    parent Comic
   end
   
   config.model Comic do
-    
+    dropdown "Comic Properties"
   end
   
   config.model ComicAsset do
-    
+    parent Comic
   end
   
   config.model ComicAssetType do
-    
+    parent Setting
   end
   
   config.model Setting do
     label "App Setting"
   end
 end
-
-RailsAdmin.config {|c| c.label_methods << :comic_name}
