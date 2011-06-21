@@ -24,9 +24,9 @@ class PageUploader < CarrierWave::Uploader::Base
     "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
   
-  def s3_bucket 
-    "#{model.comic_guid}"
-  end 
+  # def s3_bucket 
+  #   "#{model.comic_guid}"
+  # end 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #

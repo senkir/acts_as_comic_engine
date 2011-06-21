@@ -9,9 +9,9 @@ class ComicAssetUploader < CarrierWave::Uploader::Base
     "#{Rails.root}/tmp/uploads" # for heroku read-only filesystem
                                 # see http://codingfrontier.com/carrierwave-on-heroku
   end
-  def s3_bucket 
-    "#{model.comic_guid}"
-  end 
+  # def s3_bucket 
+  #   "#{model.comic_guid}"
+  # end 
   
   def extension_white_list
     %w(jpg jpeg gif png)

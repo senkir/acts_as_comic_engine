@@ -35,6 +35,7 @@ gem 'aws' #required for Amazon services
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'cucumber-rails'
-  # gem 'webrat'
+    gem "rspec-rails", "~> 2.4"
+    gem "capybara"
+    gem "autotest"
 end
