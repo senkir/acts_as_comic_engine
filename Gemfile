@@ -25,7 +25,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git' #admin pane
 
 #Views
 gem 'haml' #easier view building
-gem 'formtastic'
+gem 'formtastic' #forms
 
 #File Handling
 gem 'carrierwave' #file uploads
