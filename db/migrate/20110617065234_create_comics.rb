@@ -2,8 +2,6 @@ class CreateComics < ActiveRecord::Migration
   def self.up
     create_table :comics do |t|
       t.string :name
-      t.date :created_on
-      t.date :modified_on
 
       t.timestamps
     end
