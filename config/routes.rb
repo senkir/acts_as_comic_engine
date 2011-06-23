@@ -1,4 +1,8 @@
 Spidermuffin::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  ActiveAdmin.routes(self)
+
   get "comics/show"
 
   get "comics/index"
@@ -6,8 +10,6 @@ Spidermuffin::Application.routes.draw do
   get "pages/show"
 
   get "pages/index"
-
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
