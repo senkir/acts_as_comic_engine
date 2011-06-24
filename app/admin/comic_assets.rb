@@ -1,4 +1,4 @@
 ActiveAdmin.register ComicAsset do
-  menu :label => "Assets"
+#  menu :label => "Assets"
   menu :parent => "Comics"
 end

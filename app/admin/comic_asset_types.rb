@@ -1,4 +1,4 @@
 ActiveAdmin.register ComicAssetType do
-  menu :label => "Asset Types"
-  menu :parent => "App Settings"
+#  menu :label => "Asset Types"
+  menu :parent => "General Settings"
 end
