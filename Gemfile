@@ -19,12 +19,12 @@ gem 'mysql2', '< 0.3'
 
 # Bundle the extra gems:
 
-#Admin
-gem 'activeadmin'
-
 #Views
 gem 'haml' #easier view building
 gem 'formtastic' #forms
+
+#Admin
+gem 'activeadmin'
 
 #File Handling
 gem 'carrierwave' #file uploads

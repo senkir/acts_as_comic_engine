@@ -1,0 +1,14 @@
+= semantic_form_for [:admin, @page] do |f| 
+  = f.inputs :name => "General" do
+    = f.input :comic_id 
+    = f.input :sequence 
+    = f.input :is_shown 
+  
+  = f.inputs :name => "Uploader" do 
+    = f.input :title 
+    = image_tag(@page.image_url) if @page.image? 
+    = f.file_field :image 
+    = f.hidden_field :image_cache 
+    
+  = f.buttons :commit
+
