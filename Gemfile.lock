@@ -80,6 +80,7 @@ GEM
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
       i18n (~> 0.4)
+    girl_friday (0.9.1)
     haml (3.1.2)
     has_scope (0.5.0)
     http_connection (1.4.1)
@@ -173,6 +174,7 @@ DEPENDENCIES
   carrierwave
   fog
   formtastic
+  girl_friday
   haml
   mysql2 (< 0.3)
   rails (= 3.0.7)

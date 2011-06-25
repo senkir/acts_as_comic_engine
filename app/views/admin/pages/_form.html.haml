@@ -1,4 +1,4 @@
-= semantic_form_for [:admin, @page] do |f| 
+= semantic_form_for [:admin, @page], :html => {:multipart => true} do |f| 
   = f.inputs :name => "General" do
     = f.input :comic_id 
     = f.input :sequence 
@@ -6,7 +6,7 @@
   
   = f.inputs :name => "Uploader" do 
     = f.input :title 
-    = image_tag(@page.image_url) if @page.image? 
+    = image_tag(@page.image.url) if @page.image? 
     = f.file_field :image 
     = f.hidden_field :image_cache 
     
