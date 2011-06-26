@@ -27,6 +27,7 @@ gem 'formtastic' #forms
 gem 'activeadmin'
 
 #File Handling
+#gem 'rmagick', :require => 'RMagick' #image manipulation
 gem 'carrierwave' #file uploads
 gem 'fog' #supplemental gem for Amazon services
 gem 'aws' #required for Amazon services
@@ -36,6 +37,7 @@ gem 'girl_friday' #free worker threads
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
+    gem "rspec"
     gem "rspec-rails", "~> 2.4"
     gem "capybara"
     gem "autotest"

@@ -11,14 +11,14 @@ CarrierWave.configure do |config|
 #    :region                 => 'us-west-1'  # optional, defaults to 'us-east-1'
   }
   
-  config.fog_directory  = 'https://amazonaws.com/spidermuffin_prod'                         # required
+  config.fog_directory  = 'spidermuffin-prod'                         # required
   
   if Rails.env.development?
-    config.fog_directory = 'spidermuffin_dev'
+    config.fog_directory = 'spidermuffin-dev'
   end
   
   if Rails.env.staging?
-    config.fog_directory = 'https://amazonaws.com/spidermuffin_staging'
+    config.fog_directory = 'spidermuffin-staging'
   end
 #     config.fog_host       = 'https://s3.amazonaws.com/'            # optional, defaults to nil
 #    config.fog_public     = false                                   # optional, defaults to true

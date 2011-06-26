@@ -178,4 +178,5 @@ DEPENDENCIES
   haml
   mysql2 (< 0.3)
   rails (= 3.0.7)
+  rspec
   rspec-rails (~> 2.4)

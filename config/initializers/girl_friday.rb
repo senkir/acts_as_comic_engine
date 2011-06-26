@@ -3,4 +3,8 @@
 #end
 IMAGE_QUEUE = GirlFriday::WorkQueue.new(:image_crawler, :size => 2) do |msg|
   ImageCrawler.process(msg)
+  
+  #Sample Usage
+  #EMAIL_QUEUE.push(:email => @user.email, :name => @user.name)
+
 end
