@@ -14,18 +14,14 @@ class Page < ActiveRecord::Base
       super
     end
   end
-  
-=begin
-  def comic
-    Comic.find(self.comic)
-  end
-=end  
+
   def next_in_sequence
+    raise "No Comic Defined For Page" if self.comic_id == nil
     @pages = Comic.find(self.comic_id).pages
-    if @pages == 0 || @pages == null
-      @pages.count
+    if @pages.count == 0 || @pages == nil
+      1
     else
-      0
-    end
+      @pages.count
+    end      
   end
 end
