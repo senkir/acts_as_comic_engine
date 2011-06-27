@@ -28,6 +28,7 @@ describe Page do
   it "should return a reference to the comic model associated with the page" do
     page = Page.new
     page.comic_id = @comic.id
+    page.save
     page.comic.should == @comic
   end
   
