@@ -3,7 +3,7 @@
 class ComicAssetUploader < CarrierWave::Uploader::Base
   
   def store_dir
-    "comics/#{model.comic_id}/#{model.class.to_s.underscore}/#{model.asset_type}/#{model.id}"
+    "comics/#{model.comic}.shortname/#{model.class.to_s.underscore}/#{model.asset_type}/#{model.id}"
   end
   def cache_dir
     "#{Rails.root}/tmp/uploads" # for heroku read-only filesystem

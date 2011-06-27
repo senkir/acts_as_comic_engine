@@ -1,17 +1,19 @@
 = semantic_form_for [:admin, @page], :html => {:multipart => true} do |f| 
   = f.inputs :name => "General" do
-    = f.input :comic_id 
-    = f.input :sequence 
-    = f.input :is_shown 
+    = f.input :comic_id, :as => :select, :collection => Comic.find(:all), :include_blank => false
+    - @sequence = 0
+    - @sequence = @page.next_in_sequence if @page.comic_id?
+    = f.input :sequence, :default => @sequence, :hint => "The order in which to place this page"
+    = f.input :is_shown, :hint => "If checked, this page becomes accessible publicly"
   
   = f.inputs :name => "Uploader" do 
-    = f.input :title 
+    = f.input :title, :hint => "Title for this page"
     = image_tag(@page.image.url) if @page.image? 
     %br
-    = f.file_field :image 
-    = f.hidden_field :image_cache 
+    = f.file_field :image
+    = f.hidden_field :image_cache
     - if @page.image
       = "remove"
       = f.check_box :remove_image, :label => "Remove"
   = f.buttons :commit
-
+  
