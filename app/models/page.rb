@@ -9,13 +9,14 @@ class Page < ActiveRecord::Base
   #Validation
   validates_presence_of :comic_id
   
-  before_save :populate_sequence_if_nil, :validate_uniqueness_of_sequence
+#  before_save :populate_sequence_if_nil
+  before_save :validate_uniqueness_of_sequence
   
-  def populate_sequence_if_nil
-    if !self.sequence?
-      self.sequence = self.next_in_sequence
-    end
-  end
+  # def populate_sequence_if_nil
+  #   if !self.sequence?
+  #     self.sequence = self.next_in_sequence
+  #   end
+  # end
   
   def validate_uniqueness_of_sequence
     raise "Method undefined for nil comic" if self.comic_id == nil
@@ -30,13 +31,13 @@ class Page < ActiveRecord::Base
   end
 
   def next_in_sequence
-    raise "No Comic Defined For Page" if self.comic_id == nil
-    next_in_sequence Comic.find(self.comic_id)
+    raise "Unable to build sequence.  No Comic Defined For Page." if self.comic_id == nil
+    next_in_sequence_for_comic self.comic
   end
   
   def comic
-    raise "No Comic Defined For Page" if self.comic_id == nil
-    Comic.find(self.comic_id)
+      raise "No Comic Defined For Page" if self.comic_id == nil
+      Comic.find(self.comic_id)
   end
   
 end

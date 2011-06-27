@@ -10,7 +10,7 @@ describe PagesHelper do
   # Method: next_in_sequence
   it "should raise an error if model is of the wrong class" do
     setting = Setting.new
-    lambda { next_in_sequence setting }.should raise_error
+    lambda { next_in_sequence_for_comic setting }.should raise_error
   end
   
   it "should raise an exception for a Page without a comic_id" do
@@ -19,7 +19,7 @@ describe PagesHelper do
   end
   
   it "should return 1 for a new comic" do
-    (next_in_sequence @comic).should == 1
+    (next_in_sequence_for_comic @comic).should == 1
   end
   
   it "should return one more than the current object count" do
