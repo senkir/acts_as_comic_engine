@@ -1,5 +1,5 @@
-- @page = params[:page] if params[:page]?
 = semantic_form_for [:admin, @page], :html => {:multipart => true} do |f| 
+  - @page = page if page != nil
   = f.inputs :name => "General" do
     = f.input :comic_id, :as => :select, :collection => Comic.find(:all), :include_blank => false
     - @sequence = 0

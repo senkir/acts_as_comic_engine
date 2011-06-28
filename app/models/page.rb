@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   belongs_to :comic
   mount_uploader :image, PageUploader
 
-  named_scope :ordered, :order => "sequence DESC"
+  scope :ordered, :order => "sequence DESC"
   
   #Validation
   validates_presence_of :comic_id
