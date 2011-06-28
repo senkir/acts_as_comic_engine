@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
   include PagesHelper
-  attr_accessible :title, :image, :sequence
+  attr_accessible :title, :image, :sequence, :comic_id, :is_shown, :image_cache
   belongs_to :comic
   mount_uploader :image, PageUploader
 
@@ -14,7 +14,8 @@ class Page < ActiveRecord::Base
   
   def validate_uniqueness_of_sequence
     raise "Method undefined for nil comic" if self.comic_id == nil
-    raise "Error:  Page sequence number not unique (" + self.sequence + ")" if Page.find_by_comic_id_and_sequence(self.comic_id, self.sequence) != nil
+    @comparisonPage = Page.find_by_comic_id_and_sequence(self.comic_id, self.sequence)
+    raise "Error:  Page sequence number not unique (" + self.sequence + ")" if @comparisonPage != nil && @comparisonPage != self
   end
   
   def image=(val)

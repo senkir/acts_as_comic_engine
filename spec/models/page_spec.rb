@@ -51,4 +51,8 @@ describe Page do
     @duplicate.sequence = @page.sequence
     lambda {@duplicate.validate_uniqueness_of_sequence}.should raise_error
   end
+  
+  pending "should not raise an exception if model sequence itself"
+  
+  pending "should raise an exception if searching for sequence results in more than one record"
 end

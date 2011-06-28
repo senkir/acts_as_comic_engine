@@ -3,17 +3,22 @@ ActiveAdmin.register Page do
   
   before_filter do
     @page = nil
-    if params[:id] != nil
-      @page = Comic.find(params[:id]).new_page
+    if params[:comic] != nil
+      @page = Comic.find(params[:comic]).new_page
     end
   end
   
   index do
-    column :title
+    column "Title" do |page|
+      link_to page.title, admin_page_path(page.id)
+    end
     column :comic_id
     column :sequence
   end
   
   form :partial => "form", :locals => {:page => @page}
-
+  
+  show do
+    render "show"
+  end
 end

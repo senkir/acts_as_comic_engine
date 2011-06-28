@@ -13,7 +13,7 @@ class PageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "comics/#{model.comic}.shortname/#{model.class.to_s.underscore}/#{model.id}"
+    "comics/#{model.comic.shortname}/#{model.class.to_s.underscore}/#{model.id}"
   end
   def cache_dir
     "#{Rails.root}/tmp/uploads" # for heroku read-only filesystem
