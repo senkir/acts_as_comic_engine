@@ -12,12 +12,6 @@ class Page < ActiveRecord::Base
 #  before_save :populate_sequence_if_nil
   before_save :validate_uniqueness_of_sequence
   
-  # def populate_sequence_if_nil
-  #   if !self.sequence?
-  #     self.sequence = self.next_in_sequence
-  #   end
-  # end
-  
   def validate_uniqueness_of_sequence
     raise "Method undefined for nil comic" if self.comic_id == nil
     raise "Error:  Page sequence number not unique (" + self.sequence + ")" if Page.find_by_comic_id_and_sequence(self.comic_id, self.sequence) != nil

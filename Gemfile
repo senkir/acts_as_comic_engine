@@ -22,6 +22,7 @@ gem 'mysql2', '< 0.3'
 #Views
 gem 'haml' #easier view building
 gem 'formtastic' #forms
+gem 'kaminari' #pagination
 
 #Admin
 gem 'activeadmin'

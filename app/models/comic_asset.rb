@@ -1,5 +1,6 @@
 class ComicAsset < ActiveRecord::Base
   mount_uploader :image, ComicAssetUploader
+  attr_accessible :image
   belongs_to :comic_asset_type
   belongs_to :comic
   

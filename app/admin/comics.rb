@@ -1,4 +1,6 @@
 ActiveAdmin.register Comic do
+  
+  #Index Page
   index do
     column :name
     #figure out how many pages belong to this comic
@@ -11,5 +13,8 @@ ActiveAdmin.register Comic do
     end
     column :updated_at
     column :created_at
+    column "New Page" do |comic|
+      link_to "New Page", new_admin_page_path(:id => comic.id)
+    end
   end
 end

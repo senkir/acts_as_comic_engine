@@ -6,11 +6,13 @@ describe Page do
     @comic.name = "Test Comic"
     @comic.shortname = "test"
     @comic.save
+    @comic = Comic.find_by_shortname("test")
   end
+  
   #Method: Building of Page
   it "should save appropriate data" do
     @page = Page.new
-    @page.comic_id = 1
+    @page.comic_id = @comic.id
     @page.sequence = 1
     @page.save
     @page.comic_id.should_not == nil
@@ -24,7 +26,6 @@ describe Page do
   end
   
   it "should return sequence of 1 for a new comic" do
-    @comic = Comic.find(1)
     page = @comic.pages.build
     page.next_in_sequence.should == 1
   end
@@ -37,19 +38,10 @@ describe Page do
   
   it "should return a reference to the comic model associated with the page" do
     page = Page.new
-    @comic = Comic.find(1)
     page.comic_id = @comic.id
     page.save
     page.comic.should == @comic
   end
-  
-  # Method: populate_sequence_if_nil
-  # it "should populate sequence automatically before save" do
-  #   page = Page.new
-  #   page.comic_id = @comic.id
-  #   page.save
-  #   page.sequence.should_not == nil
-  # end
   
   #Method: validate_uniqueness_of_sequence
   it "should raise an exception if there is a duplicate record" do
