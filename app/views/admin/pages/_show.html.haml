@@ -1,7 +1,8 @@
+%h1
+  = page.comic.name
+  %br 
 %h2
-  = page.title
-%br
-%h3 
-  = "Sequence " + page.sequence.to_s
+  = page.title + " : "
+  = "# " + page.sequence.to_s
 %br
   = image_tag(page.image.url)
