@@ -26,6 +26,7 @@ gem 'kaminari' #pagination
 
 #Admin
 gem 'activeadmin'
+gem 'mini_magick'
 
 #File Handling
 #gem 'rmagick', :require => 'RMagick' #image manipulation

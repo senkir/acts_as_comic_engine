@@ -3,5 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
+require 'carrierwave/processing/mini_magick'
 include Rake::DSL
 Spidermuffin::Application.load_tasks
