@@ -2,17 +2,19 @@ require 'spec_helper'
 
 describe ComicAsset do
   before :all do
-    @comic = Comic.new
-    @comic.name = "Test Comic"
-    @comic.shortname = "test"
-    @comic.save
+    @type = ComicAssetType.new
+    @type.name = "sample"
+    @type.save
+    @type = ComicAssetType.find_by_name("sample")
   end
   
-  it "should raise an exception for a page without a comic_id" do
-    page = Page.new
-    lambda {page.next_in_sequence}.should raise_error
+  # Method: asset_type
+  it "should return a reference to the asset type" do
+    @asset = @type.comic_assets.build
+    @asset.asset_type.should == @type
   end
   
+  # Method: comic
   it "should return a reference to the comic model associated with the page" do
     page = Page.new
     @comic = Comic.find(1)
@@ -21,4 +23,6 @@ describe ComicAsset do
     page.save
     page.comic.should == @comic
   end
+  
+  
 end

@@ -13,6 +13,6 @@ class ComicAsset < ActiveRecord::Base
   
   def comic
     raise "No Comic Defined For Comic Asset" if self.comic_id == nil
-    Comic.find(self.comic_id).nil
+    Comic.find(self.comic_id)
   end
 end

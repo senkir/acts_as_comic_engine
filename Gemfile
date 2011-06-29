@@ -42,4 +42,5 @@ group :development, :test do
     gem "rspec-rails", "~> 2.4"
     gem "capybara" #simulates user interaction
     gem "watchr" #continuous testing
+    gem 'spork', '~> 0.9.0.rc'
 end
