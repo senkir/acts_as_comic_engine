@@ -38,8 +38,8 @@ gem 'girl_friday' #free worker threads
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-    gem "rspec"
+    gem "rspec" #unit testing
     gem "rspec-rails", "~> 2.4"
-    gem "capybara"
-    gem "autotest"
+    gem "capybara" #simulates user interaction
+    gem "watchr" #continuous testing
 end

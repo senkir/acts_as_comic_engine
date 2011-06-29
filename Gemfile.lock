@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.7)
       actionpack (= 3.0.7)
@@ -38,8 +37,6 @@ GEM
       activesupport (= 3.0.7)
     activesupport (3.0.7)
     arel (2.0.10)
-    autotest (4.4.6)
-      ZenTest (>= 4.4.1)
     aws (2.5.5)
       http_connection
       uuidtools
@@ -160,6 +157,7 @@ GEM
     uuidtools (2.1.2)
     warden (1.0.4)
       rack (>= 1.0)
+    watchr (0.7)
     will_paginate (3.0.pre2)
     xml-simple (1.1.0)
     xpath (0.1.4)
@@ -170,7 +168,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-  autotest
   aws
   capybara
   carrierwave
@@ -183,3 +180,4 @@ DEPENDENCIES
   rails (= 3.0.7)
   rspec
   rspec-rails (~> 2.4)
+  watchr
