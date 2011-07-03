@@ -1,4 +1,4 @@
-class AddAvatarImageToAdminUser < ActiveRecord::Migration
+class AddAvatarImageToAdminUsers < ActiveRecord::Migration
   def self.up
     add_column :admin_users, :avatar_image, :string
   end
