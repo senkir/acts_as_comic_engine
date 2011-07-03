@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :admin_user_id
       t.string :comic_id
       t.string :edited_by
+      t.string :blog_id
 
       t.timestamps
     end
