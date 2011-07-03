@@ -19,6 +19,7 @@ ActiveAdmin.register Page do
       page.comic.name
     end
     column :sequence
+    column :updated_at
   end
   
   form :partial => "form", :locals => {:page => @page}
