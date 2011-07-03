@@ -1,0 +1,15 @@
+This page will be the primary index for a particular comic.  it will always display the most recent available image in the sequence.
+
+also need a partial with which to show the blog elements
+
+- if @page != nil
+  %h3 
+    = @page.sequence + " " + @page.title
+  %br
+  = image_tag(@page.image.url)
+  %br
+  = the most recent comic is above me
+- else 
+  %br
+  %b
+    there are no comics to display

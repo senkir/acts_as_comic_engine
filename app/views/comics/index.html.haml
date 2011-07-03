@@ -1,0 +1,12 @@
+%h3
+  All Comics
+%br
+%br
+- @comics.each do |comic|
+  %ul
+    %li
+      = link_to comic.name, comic_path(comic.id)
+    %li
+      = comic.shortname
+    %li
+      = comic.pages.count.to_s

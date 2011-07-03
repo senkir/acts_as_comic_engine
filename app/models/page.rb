@@ -30,9 +30,4 @@ class Page < ActiveRecord::Base
     next_in_sequence_for_comic self.comic
   end
   
-  def comic
-      raise "No Comic Defined For Page" if self.comic_id == nil
-      Comic.find(self.comic_id)
-  end
-  
 end

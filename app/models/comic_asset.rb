@@ -10,9 +10,4 @@ class ComicAsset < ActiveRecord::Base
     raise "No Asset Type Defined for Comic Asset" if self.comic_asset_type_id == nil
     ComicAssetType.find(self.comic_asset_type_id)
   end
-  
-  def comic
-    raise "No Comic Defined For Comic Asset" if self.comic_id == nil
-    Comic.find(self.comic_id)
-  end
 end

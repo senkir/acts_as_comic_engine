@@ -1,0 +1,11 @@
+%h1
+  = @comic.name
+- if @comic.visible_pages != nil
+  - @comic.visible_pages.each do |page|
+    %ul
+      %li
+      = page.sequence.to_s + ": " + page.title
+      %li
+        = image_tag(page.image.thumb.url)
+- else
+there are no pages for this comic yet!

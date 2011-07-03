@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def index
     @comic = Comic.find(params[:comic_id])
-    @pages = Page.find_all_by_comic_id(params[:comic_id])
+    @page = @comic.last_page
   end
 
 end

@@ -32,4 +32,12 @@ describe Comic do
     @page.sequence.should_not == nil
   end
   
+  it "should only return pages which are visible to the user" do
+    @page = @comic.new_page
+    @page.save
+    @comic.visible_pages.should == nil
+    @page.is_visible = true
+    @page.save
+    @comic.visible_pages.should_not == nil
+  end
 end

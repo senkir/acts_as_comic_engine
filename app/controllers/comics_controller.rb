@@ -1,4 +1,9 @@
 class ComicsController < ApplicationController
+  
+  def index
+    @comics = Comic.all
+  end
+  
   def show
     #make sure an id exists
     if params[:id]
@@ -8,14 +13,6 @@ class ComicsController < ApplicationController
     end
     
     #figure out which comic needs to be retreived
-    @comic = Comic.find(@comic_id)        
-    #find the page for that comic
-    @page = Page.find_last_by_comic_id(@comic_id)
-    redirect_to(@page)    
+    @comic = Comic.find(@comic_id)
   end
-
-  def index
-    @comics = Comic.all
-  end
-
 end
