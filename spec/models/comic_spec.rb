@@ -36,7 +36,7 @@ describe Comic do
     @page = @comic.new_page
     @page.save
     @comic.visible_pages.should == nil
-    @page.is_visible = true
+    @page.is_shown = true
     @page.save
     @comic.visible_pages.should_not == nil
   end

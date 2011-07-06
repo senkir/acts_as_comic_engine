@@ -12,7 +12,11 @@ def growl(message)
   title = "Watchr Test Results"
   passed = message.include?('0 failures')
   image = passed ? ".watchr_images/passed.png" : ".watchr_images/failed.png"
-  severity = passed ? "-1" : "1"
+  severity = passed ? "-1" : "2"
+  if message.include?('pending')
+    severity = 1 
+    image = ".watchr_images/pending.png"
+  end
   options = "-w -n Watchr --image '#{File.expand_path(image)}'"
   options << " -m '#{message}' '#{title}' -p #{severity}"
   system %(#{growlnotify} #{options} &)

@@ -16,5 +16,6 @@ ActiveAdmin.register Comic do
     column "New Page" do |comic|
       link_to "New Page", new_admin_page_path(:comic => comic.id)
     end
+    
   end
 end

@@ -9,7 +9,7 @@
   
   = f.inputs :name => "Uploader" do 
     = f.input :title, :hint => "Title for this page"
-    = image_tag(@page.image.thumb.url) if @page.image? 
+    = image_tag(@page.image.thumb.url)
     %br
     = f.file_field :image
     = f.hidden_field :image_cache

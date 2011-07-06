@@ -23,7 +23,7 @@ describe AdminUser do
   end
   
   it "should be able to create a blog" do
-    @blog = @user.build_blog
+    @blog = @user.blog.build
     @blog.should_not == nil
   end
   
