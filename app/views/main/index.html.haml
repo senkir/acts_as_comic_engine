@@ -1,0 +1,5 @@
+- if value_for_name "enable_featured_comic"
+  Showing the featured comic!
+  %br
+  - @page = featured_comic.last_page
+  = render "pages/styled_page", :locals => { :page => @page } if @page != nil
