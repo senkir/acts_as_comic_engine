@@ -1,7 +1,7 @@
 class AdminUser < ActiveRecord::Base
   has_many :blogs
   has_many :posts
-  has_many :comics, :through => :admin_users_comic
+  has_many :comics, :through => :admin_user_comic
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,19 +19,5 @@ class AdminUser < ActiveRecord::Base
   
   def password_required?
     new_record? ? false : super
-  end
-  
-  before_save :auto_populate_displayname
-  after_save :autocreate_blog
-  
-  #users must have at least one blog defined
-  def autocreate_blog 
-    @blog = self.blog.build
-    @blog.is_default = true
-    @blog.save
-  end
-  
-  def auto_populate_displayname
-    self.displayname = self.email if self.displayname == nil
   end
 end

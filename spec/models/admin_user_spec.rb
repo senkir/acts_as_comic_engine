@@ -22,13 +22,4 @@ describe AdminUser do
     valid.should == true
   end
   
-  it "should be able to create a blog" do
-    @blog = @user.blog.build
-    @blog.should_not == nil
-  end
-  
-  it "should create a blog when a new user is created" do
-    @user.should_not == nil
-    @user.blog.should_not == nil
-  end
 end

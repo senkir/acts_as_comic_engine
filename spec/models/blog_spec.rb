@@ -3,18 +3,14 @@ require 'spec_helper'
 describe Blog do
   
   before :each do
-    @user = AdminUser.new
-    @user.displayname = "sample user"
-    @user.email = "sample@email.com"
-    @user.password = "password"
-    @user.save
-    @user = AdminUser.find_by_displayname("sample user")
+    Comic.destroy_all
+    @comic = Comic.create(:title => "sample", :shortname => "smpl")
   end
   
-  it "should default title field to " do
-    @user.blog.should_not == nil
-    @user.blog.title.should_not == nil
-    @title = @user.blog.title
-    @title.should == @user.displayname
+  it "should default title field to title of comic" do
+    @comic.blog.should_not == nil
+    @comic.blog.title.should_not == nil
+    @title = @comic.blog.title
+    @title.should == @comic.title
   end
 end

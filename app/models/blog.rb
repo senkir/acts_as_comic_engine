@@ -11,7 +11,7 @@ class Blog < ActiveRecord::Base
   def build_title
     @title = self.title
     if @title == nil || @title == ""
-      self.title = self.admin_user.displayname
+      self.title = self.comic.name
     end
   end
 end

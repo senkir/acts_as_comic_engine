@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe Page do
   before :all do
-    @comic = Comic.new
-    @comic.name = "Test Comic"
-    @comic.shortname = "test"
-    @comic.save
-    @comic = Comic.find_by_shortname("test")
+    Comic.destroy_all
+    @comic = Comic.create(:title => "page model test", :shortname => "sample")
   end
   
   #Method: Building of Page
@@ -52,7 +49,7 @@ describe Page do
     lambda {@duplicate.validate_uniqueness_of_sequence}.should raise_error
   end
   
-  pending "should not raise an exception if model sequence itself"
+  pending "should not raise an exception if model sequence returns itself"
   
   pending "should raise an exception if searching for sequence results in more than one record"
 end
