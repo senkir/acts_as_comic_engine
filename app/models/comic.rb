@@ -2,10 +2,11 @@ class Comic < ActiveRecord::Base
   has_many :pages
   has_many :comic_assets
   has_many :admin_users, :through => :admin_user_comic
+  has_many :admin_user_comic
   has_one :blog
   
   attr_accessible :title, :shortname
-  accepts_nested_attributes_for :pages, :comic_assets, :blog
+  accepts_nested_attributes_for :pages, :comic_assets, :blog, :admin_user_comic
   validates_presence_of :title, :shortname
   validates_uniqueness_of :title, :shortname
   
