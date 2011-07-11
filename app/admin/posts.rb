@@ -1,3 +1,3 @@
 ActiveAdmin.register Post do
-  menu :parent => "Users"
+  menu :parent => "Blogs"
 end

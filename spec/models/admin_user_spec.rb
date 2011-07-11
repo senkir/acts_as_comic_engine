@@ -22,4 +22,13 @@ describe AdminUser do
     valid.should == true
   end
   
+  pending "should be able to build a new comic with self as owner_id"
+  
+  pending "should be able to add and remove contributors"
+  
+  it "should be able to create a comic with self as the owner" do
+    @comic = @user.owned_comics.build
+    @comic.owner_id.should == @user.id
+  end
+  
 end

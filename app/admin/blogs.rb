@@ -1,3 +1,3 @@
 ActiveAdmin.register Blog do
-  menu :parent => "Comics"
+#  menu :parent => "Blogs"
 end

@@ -59,4 +59,6 @@ describe Comic do
     @comic.should_not == nil
     @comic.blog.should_not == nil
   end
+  
+  pending "should be able to add and remove contributors for a comic"
 end

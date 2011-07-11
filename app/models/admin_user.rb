@@ -3,6 +3,8 @@ class AdminUser < ActiveRecord::Base
   has_many :posts
   has_many :comics, :through => :admin_user_comic
   has_many :admin_user_comic
+  has_many :comics
+  has_many :owned_comics, :class_name => 'AdminUser', :foreign_key => 'owner_id'
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,7 +16,7 @@ class AdminUser < ActiveRecord::Base
 
   validates_presence_of :displayname, :email
   
-  accepts_nested_attributes_for :blogs, :posts, :admin_user_comic
+  accepts_nested_attributes_for :blogs, :posts, :admin_user_comic, :owned_comics
   
   after_create { |admin| admin.send_reset_password_instructions }
   

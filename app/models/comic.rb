@@ -4,6 +4,7 @@ class Comic < ActiveRecord::Base
   has_many :admin_users, :through => :admin_user_comic
   has_many :admin_user_comic
   has_one :blog
+  belongs_to :admin_user, :class_name => 'Owner'
   
   attr_accessible :title, :shortname
   accepts_nested_attributes_for :pages, :comic_assets, :blog, :admin_user_comic
