@@ -3,7 +3,6 @@ class AdminUser < ActiveRecord::Base
   has_many :posts
   has_many :comics, :through => :admin_user_comic
   has_many :admin_user_comic
-  has_many :comics
   has_many :owned_comics, :class_name => 'AdminUser', :foreign_key => 'owner_id'
 
   # Include default devise modules. Others available are:
@@ -12,7 +11,7 @@ class AdminUser < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :displayname
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :displayname, :is_admin
 
   validates_presence_of :displayname, :email
   

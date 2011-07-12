@@ -14,6 +14,19 @@ ActiveAdmin::Dashboards.build do
   #       end
   #     end
   #   end    
+  section "My Comics" do
+    # ul do
+    #   @comic = Comic.find(current_admin_user.id) 
+    #   render
+    #   end
+    # end
+  end
+  
+  section "My Blogs" do
+  end
+  
+  section "My User Info" do
+  end
   
   # == Render Partial Section
   # The block is rendererd within the context of the view, so you can

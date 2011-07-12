@@ -1,0 +1,23 @@
+%h1
+  User
+  %br
+Display Name: 
+= admin_user.displayname
+%br
+Email: 
+= admin_user.email
+%br
+Sign In Count: 
+= admin_user.sign_in_count
+%br
+Last Sign In: 
+= admin_user.last_sign_in_at
+%br
+Current Sign In:
+= admin_user.current_sign_in_at
+%br
+Avatar: 
+- if admin_user.avatar_image != nil
+  = image_tag(admin_user.avatar_image.url)
+- else
+  No Image :(
