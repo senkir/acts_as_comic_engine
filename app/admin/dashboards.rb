@@ -23,9 +23,20 @@ ActiveAdmin::Dashboards.build do
   end
   
   section "My Blogs" do
+    ul do
+      Blog.all.each do |blog|
+        li blog.title
+      end
+    end
+        
   end
   
-  section "My User Info" do
+  section "Your User Info" do
+    ul do
+      li image_tag(current_admin_user.avatar_image.url)
+      li "Display Name: " + current_admin_user.displayname
+      li "Email: " + current_admin_user.email      
+    end
   end
   
   # == Render Partial Section

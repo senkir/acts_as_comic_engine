@@ -5,6 +5,8 @@ class AdminUser < ActiveRecord::Base
   has_many :admin_user_comic
   has_many :owned_comics, :class_name => 'AdminUser', :foreign_key => 'owner_id'
 
+  mount_uploader :avatar_image, AvatarUploader
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
