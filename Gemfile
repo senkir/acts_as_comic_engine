@@ -23,7 +23,7 @@ gem 'mysql2', '< 0.3'
 gem 'haml' #easier view building
 gem 'formtastic' #forms
 gem 'kaminari' #pagination
-
+gem 'barista' #coffeescript support
 #Admin
 gem 'activeadmin'
 gem 'mini_magick'
