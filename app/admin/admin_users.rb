@@ -7,7 +7,7 @@ ActiveAdmin.register AdminUser do
     column :last_sign_in_at
     column :sign_in_count
     column "Avatar" do |user|
-      if user.avatar_image?
+      if user.avatar.image?
         image_tag(user.avatar_image.url)
       end
     end

@@ -16,7 +16,7 @@ ActiveAdmin.register Page do
       image_tag(preview.image.thumb.url)
     end
     column "comic" do |page|
-      page.comic.name
+      page.comic.title
     end
     column :sequence
     column :updated_at

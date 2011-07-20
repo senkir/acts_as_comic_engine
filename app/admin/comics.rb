@@ -14,6 +14,13 @@ ActiveAdmin.register Comic do
     column :updated_at
     column :owner
     column :contributors
+    column "Latest Page" do |comic|
+      if comic.last_page != nil
+        image_tag comic.last_page.image.thumb.url
+      elsif
+        li "no image"
+      end
+    end
     column "New Page" do |comic|
       link_to "New Page", new_admin_page_path(:comic => comic.id)
     end

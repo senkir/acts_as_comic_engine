@@ -4,5 +4,6 @@ class AddFieldsToAdminUsers < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :admin_users, :displayname
   end
 end
