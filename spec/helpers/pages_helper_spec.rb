@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe PagesHelper do
   before :all do
+    Comic.destroy_all
     @comic = Comic.new
-    @comic.name = "Test Comic"
+    @comic.title = "Test Comic"
     @comic.shortname = "test"
     @comic.save
   end

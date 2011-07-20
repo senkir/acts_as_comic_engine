@@ -31,9 +31,9 @@ describe AdminUser do
     @comic.owner_id.should == @user.id
   end
   
-  it "should autocreate the avatar model with default values" do
-    @user.avatar.should_not == nil
-  end
+  # it "should autocreate the avatar model with default values" do
+  #   @user.avatar.should_not == nil
+  # end
   
   pending "should be able to access the avatar image field" do
     

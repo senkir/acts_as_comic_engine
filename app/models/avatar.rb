@@ -1,4 +1,4 @@
 class Avatar < ActiveRecord::Base
-    mount_uploader :avatar_image, AvatarUploader
+    mount_uploader :image, AvatarUploader
     belongs_to :admin_user
 end

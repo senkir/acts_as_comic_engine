@@ -11,25 +11,22 @@ class AdminUser < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :displayname, :is_admin, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :displayname, :is_admin
 
   validates_presence_of :displayname, :email
   
   accepts_nested_attributes_for :blogs, :posts, :admin_user_comic, :owned_comics, :avatar
   
   after_create { |admin| admin.send_reset_password_instructions }
-  
-  before_save :build_nested_avatar
-  
+    
   def password_required?
     new_record? ? false : super
   end
   
-  def build_nested_avatar
-    if self.avatar == nil
-      @avatar = self.build_avatar
-      @avatar.save
-      self.save
-    end
-  end
+  # def build_nested_avatar
+  #   if self.avatar == nil
+  #     @avatar = self.build_avatar
+  #     @avatar.save
+  #   end
+  # end
 end
