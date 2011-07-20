@@ -18,15 +18,17 @@ class AdminUser < ActiveRecord::Base
   accepts_nested_attributes_for :blogs, :posts, :admin_user_comic, :owned_comics, :avatar
   
   after_create { |admin| admin.send_reset_password_instructions }
-    
+  
+  before_save :build_nested_avatar
+  
   def password_required?
     new_record? ? false : super
   end
   
-  # def build_nested_avatar
-  #   if self.avatar == nil
-  #     @avatar = self.build_avatar
-  #     @avatar.save
-  #   end
-  # end
+  def build_nested_avatar
+    if self.avatar == nil
+      @avatar = self.build_avatar
+      @avatar.save
+    end
+  end
 end

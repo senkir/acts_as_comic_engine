@@ -21,11 +21,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   
   def scale(width, height)
     # do something
+    process :resize_to_fit => [width, height]
   end
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [200, 300]
-  # end
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
     
   def extension_white_list
     %w(jpg jpeg gif png)

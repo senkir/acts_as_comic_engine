@@ -1,4 +1,4 @@
 ActiveAdmin.register Avatar do
-  menu :label => "Users"
+  menu :parent => "Users"
   
 end

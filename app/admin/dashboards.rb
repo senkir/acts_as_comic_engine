@@ -15,11 +15,16 @@ ActiveAdmin::Dashboards.build do
   #     end
   #   end    
   section "My Comics" do
-    # ul do
-    #   @comic = Comic.find(current_admin_user.id) 
-    #   render
-    #   end
-    # end
+    @comics = Comic.find_all_by_owner_id(current_admin_user.id)
+    if @comics == nil
+      "no comics"
+    else
+      ul do
+        @comics.each do |comic|
+          li comic.title
+        end
+      end
+    end
   end
   
   section "My Blogs" do
@@ -33,7 +38,9 @@ ActiveAdmin::Dashboards.build do
   
   section "Your User Info" do
     ul do
-      li image_tag(current_admin_user.avatar_image.url)
+      if current_admin_user.avatar != nil
+        li image_tag(current_admin_user.avatar.image.url)
+      end
       li "Display Name: " + current_admin_user.displayname
       li "Email: " + current_admin_user.email      
     end
