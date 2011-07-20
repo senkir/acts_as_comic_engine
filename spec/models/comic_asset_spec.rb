@@ -15,13 +15,8 @@ describe ComicAsset do
   end
   
   # Method: comic
-  it "should return a reference to the comic model associated with the page" do
-    page = Page.new
-    @comic = Comic.find(1)
-    page.comic_id = @comic.id
-    page.sequence = 1
-    page.save
-    page.comic.should == @comic
+  pending "should return a reference to the comic model associated with the page" do
+    @comic = Comic.create(:title => 'comicassetsample', :shortname => 'cas')
   end
   
   
