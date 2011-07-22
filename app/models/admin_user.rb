@@ -3,7 +3,7 @@ class AdminUser < ActiveRecord::Base
   has_many  :posts
   has_many  :comics, :through => :admin_user_comic, :foreign_key => 'comic_id'
   has_many  :admin_user_comic
-  has_many  :owned_comics, :class_name => 'AdminUser', :foreign_key => 'owner_id'
+  has_many  :owned_comics, :class_name => 'Comic', :foreign_key => 'owner_id'
   has_one   :avatar  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -29,6 +29,21 @@ class AdminUser < ActiveRecord::Base
     if self.avatar == nil
       @avatar = self.build_avatar
       @avatar.save
+    end
+  end
+  
+  def contributes_to comic
+  #  throw "method not defined for class " + comic.class.to_s if comic.class != Comic.class
+  throw "undefined method when AdminUser id is not set" if self.id == nil
+    @contributors = comic.contributors
+    if @contributors != nil
+      @has_match = false
+      (0..@contributors.count - 1).each do |i|
+        @has_match = true if self.id == @contributors[i].id
+      end
+      @has_match
+    else
+      nil
     end
   end
 end

@@ -31,15 +31,29 @@ describe AdminUser do
   
   it "should be able to create a comic with self as the owner" do
     @comic = @user.owned_comics.build
+    #@comic.class.should == Comic.class
     @comic.owner_id.should == @user.id
   end
   
-  # it "should autocreate the avatar model with default values" do
-  #   @user.avatar.should_not == nil
-  # end
-  
-  it "should be able to access the avatar image field" do
+  it "should autocreate the avatar model with default values" do
     @user.avatar.should_not == nil
   end
   
+  #method: contributes_to
+  it "should be able to check if user is a contributor for a comic" do
+    @owner = AdminUser.create(:email => "admin_user_spec@email.com", :displayname => "admin_user_spec")
+    @comic = @owner.owned_comics.build
+    @comic.title = "admin user spec comic"
+    @comic.shortname = "ausc"
+    @comic.save
+    @comic = Comic.find_by_shortname("ausc")
+    @user.id.should_not == nil
+    @comic.add_contributor @user
+    result = @user.contributes_to @comic
+    result.should == true
+  end
+  
+  pending "should throw an error if the class sent to contributes_to method is of incorrect type"do
+    
+  end
 end

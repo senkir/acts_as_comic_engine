@@ -81,4 +81,5 @@ describe Comic do
     end
     @remove_at_index.should == nil
   end
+  
 end

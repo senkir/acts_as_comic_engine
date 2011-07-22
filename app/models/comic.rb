@@ -57,9 +57,10 @@ class Comic < ActiveRecord::Base
     # @join = AdminUserComic.find_by_comic_id_and_contributor_id(self.id, user.id)
     @contributors = self.contributors
     @remove_at_index = nil
-    (1..@contributors.count).each do |i|
+    (1..@contributors.count - 1).each do |i|
         @remove_at_index = i if @contributors[i].id == user.id
     end
     contributors.remove_at @remove_at_index if @remove_at_index != nil  
   end
+
 end
