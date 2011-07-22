@@ -22,7 +22,10 @@ describe AdminUser do
     valid.should == true
   end
   
-  pending "should be able to build a new comic with self as owner_id"
+  pending "should be able to see which comics user is a contributor for" do
+    @comic = @user.admin_user_comic.build
+    @comic.should_not == nil
+  end
   
   pending "should be able to add and remove contributors"
   
@@ -35,8 +38,8 @@ describe AdminUser do
   #   @user.avatar.should_not == nil
   # end
   
-  pending "should be able to access the avatar image field" do
-    
+  it "should be able to access the avatar image field" do
+    @user.avatar.should_not == nil
   end
   
 end

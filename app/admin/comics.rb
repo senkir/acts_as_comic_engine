@@ -1,5 +1,4 @@
 ActiveAdmin.register Comic do
-  
   #Index Page
   index do
     column :title

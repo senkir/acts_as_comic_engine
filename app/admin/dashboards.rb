@@ -40,6 +40,7 @@ ActiveAdmin::Dashboards.build do
     ul do
       if current_admin_user.avatar != nil
         li image_tag(current_admin_user.avatar.image.url)
+        #li link_to "change avatar", edit_admin_avatar_path current_admin_user.avatar
       end
       li "Display Name: " + current_admin_user.displayname
       li "Email: " + current_admin_user.email      

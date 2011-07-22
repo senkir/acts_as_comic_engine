@@ -4,12 +4,13 @@ describe Comic do
   
   before :all do
     Comic.destroy_all #required to prevent duplicate entries
-    @comic = Comic.create(:title => "comic model test", :shortname => "comictest")
-    @comic.reload
+    AdminUser.destroy_all
+    @user = AdminUser.create(:email => "comic_spec@email.com", :displayname => "comic_spec_user")
+    @comic = Comic.create(:title => "comic model test", :shortname => "comictest", :owner => @user)
   end
   
   # Method: basic setup
-  it "should save data when name and shortname have been set and not otherwise" do
+  it "should save data when owner, name and shortname have been set and not otherwise" do
     @thing = Comic.new
     @thing.title = "my test comic"
     result = @thing.save
@@ -17,18 +18,23 @@ describe Comic do
     @thing.shortname = "test2"
     result = @thing.save
     result.should == true
+    @thing.owner = @user
+    result = @thing.save
+    result.should == true
   end
   
   it "should not allow duplicate shortnames or titles" do
+    @user.id.should_not == nil
     Comic.create(:title => "comic", :shortname => "testaroo")
-    @duplicate = Comic.create(:title => "comic", :shortname => "testaroo")
+    @duplicate = Comic.create(:title => "comic", :shortname => "testaroo", :owner => @user)
     @duplicate.id.should == nil
-    @duplicate = Comic.create(:title => "different", :shortname => "testaroo")
+    @duplicate = Comic.create(:title => "different", :shortname => "testaroo", :owner => @user)
     @duplicate.id.should == nil
-    @duplicate = Comic.create(:title => "comic", :shortname => "different")
+    @duplicate = Comic.create(:title => "comic", :shortname => "different", :owner => @user)
     @duplicate.id.should == nil
-    @duplicate = Comic.create(:title => "different", :shortname => "different")
-    @duplicate.id.should_not == nil
+    @duplicate = Comic.create(:title => "different", :shortname => "different", :owner => @user)
+    result = @duplicate.save
+    result.should == true
   end
   
   # Method: new_page
@@ -60,5 +66,19 @@ describe Comic do
     @comic.blog.should_not == nil
   end
   
-  pending "should be able to add and remove contributors for a comic"
+  it "should be able to ADD a contributor for a comic" do
+    result = @comic.add_contributor @user
+    result.should_not == nil
+  end
+  
+  it "should be able to REMOVE a contributor for a comic" do
+    @comic.contributors.should_not == nil
+    @comic.remove_contributor @user
+    @remove_at_index = nil
+    @contributors = @comic.contributors
+    (1..@contributors.count).each do |i|
+        @remove_at_index = i if @contributors[i].id == @user.id
+    end
+    @remove_at_index.should == nil
+  end
 end

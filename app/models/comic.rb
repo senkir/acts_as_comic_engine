@@ -1,7 +1,7 @@
 class Comic < ActiveRecord::Base
   has_many :pages
   has_many :comic_assets
-  has_many :contributors, :through => :admin_user_comic
+  has_many :contributors, :through => :admin_user_comic, :class_name => 'AdminUser', :foreign_key => "contributor_id"
   has_many :admin_user_comic
   has_one :blog
   belongs_to :owner, :class_name => 'AdminUser'
@@ -11,13 +11,13 @@ class Comic < ActiveRecord::Base
   validates_presence_of :title, :shortname
   validates_uniqueness_of :title, :shortname
   
-   after_save :autocreate_blog
+  after_save :autocreate_blog
 
   #build a new page and feed it the proper sequence number for this comic
   def new_page
     @page = self.pages.build
     @page.sequence = @page.next_in_sequence
-    @page 
+    @page
   end
   
   #always returns just the visible pages
@@ -37,5 +37,29 @@ class Comic < ActiveRecord::Base
     @blog.is_default = true
     @blog.title = self.title
     @blog.save
+  end
+  
+  #add contributors
+  def add_contributor user
+    # if self.contributors == nil
+    #   self.contributors.build
+    # end
+    # @join = AdminUserComic.create(:contributor => user, :comic => self)
+    self.contributors << user
+    self.contributors
+    self.save
+  end
+  
+  #remove contributors
+  def remove_contributor user
+    throw "Cannot remove nil user" if user == nil
+    #@join = self.contributors
+    # @join = AdminUserComic.find_by_comic_id_and_contributor_id(self.id, user.id)
+    @contributors = self.contributors
+    @remove_at_index = nil
+    (1..@contributors.count).each do |i|
+        @remove_at_index = i if @contributors[i].id == user.id
+    end
+    contributors.remove_at @remove_at_index if @remove_at_index != nil  
   end
 end

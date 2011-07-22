@@ -1,7 +1,7 @@
 class AdminUser < ActiveRecord::Base
   has_many  :blogs
   has_many  :posts
-  has_many  :comics, :through => :admin_user_comic
+  has_many  :comics, :through => :admin_user_comic, :foreign_key => 'comic_id'
   has_many  :admin_user_comic
   has_many  :owned_comics, :class_name => 'AdminUser', :foreign_key => 'owner_id'
   has_one   :avatar  
