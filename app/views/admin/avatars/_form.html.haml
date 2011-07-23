@@ -1,0 +1,10 @@
+= semantic_form_for [:admin, @avatar], :html => {:multipart => true} do |f| 
+  - user = @avatar.admin_user
+  - user
+  = f.inputs :name => "Uploader" do 
+    = image_tag(@avatar.image.url)
+    %br
+    = f.file_field :image
+    = f.hidden_field :image_cache
+    = f.buttons :commit
+  

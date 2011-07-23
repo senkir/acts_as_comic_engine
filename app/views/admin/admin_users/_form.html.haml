@@ -3,7 +3,6 @@
     = f.input :displayname, :label => "Display Name"
     =  f.input :email, :hint => "required"
     =  f.input :password
-    = image_tag(@admin_user.avatar_image.url) if @admin_user.avatar_image? 
-    =  f.file_field :avatar_image
+    = image_tag(@admin_user.avatar.image.url) if @admin_user.avatar.image? 
     = f.input :is_admin
   = f.buttons :commit

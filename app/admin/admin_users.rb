@@ -8,7 +8,7 @@ ActiveAdmin.register AdminUser do
     column :sign_in_count
     column "Avatar" do |user|
       if user.avatar != nil
-        image_tag(user.avatar.image.thumb.url)
+        link_to image_tag(user.avatar.image.thumb.url), admin_avatar_path(user.id)
       end
     end
     default_actions

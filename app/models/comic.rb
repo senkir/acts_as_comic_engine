@@ -22,7 +22,7 @@ class Comic < ActiveRecord::Base
   
   #always returns just the visible pages
   def visible_pages
-    Page.find_by_comic_id_and_is_shown(self.id, 1, :order => :sequence)
+    Page.find_all_by_comic_id_and_is_shown(self.id, 1, :order => :sequence)
   end
   
   #returns the last in sequence

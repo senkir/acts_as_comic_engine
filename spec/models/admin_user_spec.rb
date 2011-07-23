@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe AdminUser do
   
+  before :all do
+    @owner = AdminUser.create(:email => "admin_user_spec@email.com", :displayname => "admin_user_spec")
+    @comic = @owner.owned_comics.build
+    @comic.title = "admin user spec comic"
+    @comic.shortname = "ausc"
+    @comic.save
+  end
+  
   before :each do
     @user = AdminUser.new
     @user.displayname = "sample user"
@@ -10,7 +18,7 @@ describe AdminUser do
     @user.save
     @user = AdminUser.find_by_displayname("sample user")
   end
-    
+  
   it "should require a display name and email when a new user is created" do
     @user = AdminUser.new
     @user.displayname = "sample user2"
@@ -40,9 +48,7 @@ describe AdminUser do
   end
   
   #method: contributes_to
-  it "should be able to check if user is a contributor for a comic" do
-    @owner = AdminUser.create(:email => "admin_user_spec@email.com", :displayname => "admin_user_spec")
-    @comic = @owner.owned_comics.build
+  it "should return true if user is a contributor for a comic" do
     @comic.title = "admin user spec comic"
     @comic.shortname = "ausc"
     @comic.save
@@ -51,6 +57,12 @@ describe AdminUser do
     @comic.add_contributor @user
     result = @user.contributes_to @comic
     result.should == true
+  end
+  
+  it "should return false if user is not a contributor for a comic" do
+    @newUser = AdminUser.create(:email => "adminUserSpec@contributes_to.com", :displayname => "admin_user_spec")
+    result = @newUser.contributes_to @comic
+    result.should == false
   end
   
   pending "should throw an error if the class sent to contributes_to method is of incorrect type"do

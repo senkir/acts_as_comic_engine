@@ -14,36 +14,49 @@ ActiveAdmin::Dashboards.build do
   #       end
   #     end
   #   end    
-  section "My Comics" do
-    @comics = Comic.find_all_by_owner_id(current_admin_user.id)
-    if @comics == nil
-      "no comics"
-    else
-      ul do
-        @comics.each do |comic|
-          li comic.title
+  section "My Owned Comics", :priority => 1 do
+    table_for Comic.find_all_by_owner_id(current_admin_user.id).each do |comic|
+      column :title
+      column "Last Visible Page" do |comic|
+        last_visible = comic.last_page
+        if last_visible != nil
+          link_to image_tag(last_visible.image.thumb.url), admin_page_path(last_visible.id)
+        elsif
+          "no image"
         end
       end
-    end
+      column "Blog" do |comic|
+        link_to comic.blog.title, admin_blog_path(comic.blog.id)
+      end      
+    end        
   end
   
-  section "My Blogs" do
-    ul do
-      Blog.all.each do |blog|
-        li blog.title
+  section "Comics I contribute to", :priority => 2 do
+    table_for current_admin_user.all_contributing_comics.each do |comic|
+      column :title
+      column "Last Visible Page" do |comic|
+        last_visible = comic.last_page
+        if last_visible != nil
+          link_to image_tag(last_visible.image.thumb.url), admin_page_path(last_visible.id)
+        elsif
+          "no image"
+        end
       end
-    end
-        
+      column "Blog" do |comic|
+        link_to comic.blog.title, admin_blog_path(comic.blog.id)
+      end
+    end        
   end
   
-  section "Your User Info" do
-    ul do
-      if current_admin_user.avatar != nil
-        li image_tag(current_admin_user.avatar.image.url)
-        #li link_to "change avatar", edit_admin_avatar_path current_admin_user.avatar
+  section "This is me", :priority => 3 do
+    div do
+      ul do
+        li current_admin_user.displayname
+        if current_admin_user.avatar != nil
+          li link_to image_tag(current_admin_user.avatar.image.resized.url), edit_admin_avatar_path(current_admin_user.avatar)
+        end
+        li link_to "Update Profile", edit_admin_admin_user_path(current_admin_user.id)
       end
-      li "Display Name: " + current_admin_user.displayname
-      li "Email: " + current_admin_user.email      
     end
   end
   

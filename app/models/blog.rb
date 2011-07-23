@@ -4,7 +4,7 @@ class Blog < ActiveRecord::Base
   
   has_many :posts
   
-  attr_accessible :title, :admin_user_id
+  attr_accessible :title, :comic_id
   
   before_save :build_title
   

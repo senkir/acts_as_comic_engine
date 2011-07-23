@@ -5,7 +5,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "#{model.class.to_s.underscore}/#{model.id}/#{model.asset_type}"
+    "#{model.class.to_s.underscore}/#{model.id}"
   end
   def cache_dir
     "#{Rails.root}/tmp/uploads" # for heroku read-only filesystem
@@ -17,11 +17,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
   
   # Process files as they are uploaded:
-  process :scale => [150, 150]
+  # process :scale => [150, 150]
   
-  def scale(width, height)
-    # do something
-    process :resize_to_fit => [width, height]
+  version :resized do
+  # do something
+    process :resize_to_fit => [150, 150]
   end
   # Create different versions of your uploaded files:
   version :thumb do

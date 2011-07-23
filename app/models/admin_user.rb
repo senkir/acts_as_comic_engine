@@ -32,9 +32,11 @@ class AdminUser < ActiveRecord::Base
     end
   end
   
+  #returns true if the user contributes to the specified comic
   def contributes_to comic
   #  throw "method not defined for class " + comic.class.to_s if comic.class != Comic.class
   throw "undefined method when AdminUser id is not set" if self.id == nil
+  throw "cannot call method for nil comic class" if comic == nil
     @contributors = comic.contributors
     if @contributors != nil
       @has_match = false
@@ -43,7 +45,16 @@ class AdminUser < ActiveRecord::Base
       end
       @has_match
     else
-      nil
+      false
     end
+  end
+  
+  #should return an array of comics to which the user partisipates
+  def all_contributing_comics
+    result = []
+    Comic.all.each do |comic|
+      result << comic if self.contributes_to comic
+    end
+    result
   end
 end

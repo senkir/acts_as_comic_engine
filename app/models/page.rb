@@ -5,6 +5,12 @@ class Page < ActiveRecord::Base
   mount_uploader :image, PageUploader
 
   scope :ordered, :order => "sequence DESC"
+  scope :visible, where("pages.is_shown = 1")
+  scope :invisible, where("pages.is_shown <> 1")
+  
+  def self.by_comic comic_ids
+    where(:comic_id => comic_ids)
+  end
   
   #Validation
   validates_presence_of :comic_id
@@ -15,7 +21,7 @@ class Page < ActiveRecord::Base
   def validate_uniqueness_of_sequence
     raise "Method undefined for nil comic" if self.comic_id == nil
     @comparisonPage = Page.find_by_comic_id_and_sequence(self.comic_id, self.sequence)
-    raise "Error:  Page sequence number not unique (" + self.sequence + ")" if @comparisonPage != nil && @comparisonPage != self
+    raise "Error:  Page sequence number not unique (" + self.sequence.to_s + ")" if @comparisonPage != nil && @comparisonPage.id != self.id
   end
   
   def image=(val)
