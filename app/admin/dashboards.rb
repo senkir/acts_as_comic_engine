@@ -45,6 +45,9 @@ ActiveAdmin::Dashboards.build do
       column "Blog" do |comic|
         link_to comic.blog.title, admin_blog_path(comic.blog.id)
       end
+      column "Owner" do |comic|
+        comic.owner.displayname
+      end
     end        
   end
   

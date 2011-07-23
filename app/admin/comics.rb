@@ -17,15 +17,6 @@ ActiveAdmin.register Comic do
     column "Owner" do |comic|      
       link_to image_tag(comic.owner.avatar.image.thumb.url), admin_admin_user_path(comic.owner.id)
     end
-    # column "Contributors" do |comic|
-    #   comic.contributors.each do |contributor|
-    #     if contributor.avatar.image?
-    #       image_tag(contributor.avatar.image.thumb.url)
-    #     else
-    #       contributor.displayname
-    #     end
-    #   end
-    # end
     column "Last Visible Page" do |comic|
       last_visible = comic.last_page
       if last_visible != nil
@@ -45,4 +36,12 @@ ActiveAdmin.register Comic do
     column :blog
     default_actions
   end
+  
+  #New / Update
+  # form do
+    #TODO:  the form for a new comic should autopopulate the owner to be self
+    #end
+    
+    #TODO:  need the ability to add contributors to a comic
+    
 end

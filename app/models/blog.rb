@@ -5,7 +5,7 @@ class Blog < ActiveRecord::Base
   has_many :posts
   
   attr_accessible :title, :comic_id
-  
+  accepts_nested_attributes_for :posts
   before_save :build_title
   
   def build_title
