@@ -1,8 +1,9 @@
-- if value_for_name "enable_featured_comic"
-  Showing the featured comic!
-  %br
-  - comic = featured_comic
-  - if comic != nil
-    = render "pages/styled_page", :locals => { :page => 2 } if comic.last_page != nil
-  - else
-    = "no page to display"
+#header
+  - if value_for_name "enable_featured_comic"
+    Showing the featured comic!
+    %br
+    - comic = featured_comic
+    - if comic.last_page != nil
+      = render "pages/styled_page", :locals => {:page => comic.last_page}
+      - else
+      = "no page to display"

@@ -21,7 +21,7 @@ ActiveAdmin::Dashboards.build do
         last_visible = comic.last_page
         if last_visible != nil
           link_to image_tag(last_visible.image.thumb.url), admin_page_path(last_visible.id)
-        elsif
+        else
           "no image"
         end
       end
@@ -38,7 +38,7 @@ ActiveAdmin::Dashboards.build do
         last_visible = comic.last_page
         if last_visible != nil
           link_to image_tag(last_visible.image.thumb.url), admin_page_path(last_visible.id)
-        elsif
+        else
           "no image"
         end
       end

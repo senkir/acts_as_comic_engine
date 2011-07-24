@@ -21,8 +21,9 @@ gem 'mysql2', '< 0.3'
 
 #Views
 gem 'haml' #easier view building
+gem "compass", ">= 0.11.5" #stylesheet maddness
 gem 'formtastic' #forms
-gem 'kaminari' #pagination
+gem 'kaminari' #pagination?  maybe will_paginate as an alternative
 gem 'barista' #coffeescript support
 #Admin
 gem 'activeadmin'
@@ -41,8 +42,8 @@ gem 'girl_friday' #free worker threads
 # and rake tasks are available in development mode:
 group :development, :test do
     gem "rspec" #unit testing
-    gem "rspec-rails", "~> 2.4"
+    gem "rspec-rails", "~> 2.4" #ties rspec into rails
     gem "capybara" #simulates user interaction
     gem "watchr" #continuous testing
-    gem 'spork', '~> 0.9.0.rc'
+    gem 'spork', '~> 0.9.0.rc' #forks rails instances in testing
 end

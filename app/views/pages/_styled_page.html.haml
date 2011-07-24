@@ -1,3 +1,9 @@
-This is where the image lives!
+.sampletext
+  This is where the image lives!
 %br
-= page.title
+- page = locals[:page]
+#page
+  .page.header
+    = page.title
+  .page.image
+  = image_tag page.image.url

@@ -5,8 +5,8 @@
 - @comics.each do |comic|
   %ul
     %li
-      = link_to comic.name, comic_path(comic.id)
+      Title: 
+      = link_to comic.title, comic_path(comic.id)
     %li
-      = comic.shortname
-    %li
+      Pages:
       = comic.pages.count.to_s
