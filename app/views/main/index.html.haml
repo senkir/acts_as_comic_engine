@@ -1,9 +1,13 @@
-#header
-  - if value_for_name "enable_featured_comic"
+= render "header"
+#content
+  - if @enable_featured_comic == true
     Showing the featured comic!
     %br
     - comic = featured_comic
     - if comic.last_page != nil
-      = render "pages/styled_page", :locals => {:page => comic.last_page}
+      = render "pages/single", :locals => {:page => comic.last_page}
       - else
       = "no page to display"
+  - else
+    there aint no showing of a featured comic here
+= render "footer"

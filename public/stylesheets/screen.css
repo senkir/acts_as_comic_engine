@@ -533,3 +533,24 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
+
+/* line 15, ../../app/stylesheets/screen.scss */
+#container {
+  width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  background-color: blue;
+}
+
+/* line 19, ../../app/stylesheets/screen.scss */
+#content {
+  text-align: center;
+  background-color: red;
+}
+
+/* line 24, ../../app/stylesheets/screen.scss */
+#footer {
+  background-color: #00ff00;
+  margin-bottom: 10px;
+}

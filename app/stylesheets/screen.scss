@@ -11,3 +11,17 @@
 @import "partials/page";
 @import "partials/form";
 @import "partials/two_col";
+
+#container {@include container;
+  background-color: $blue;
+}
+
+#content {
+  @include table-base;
+  background-color: $red;
+}
+
+#footer {
+  background-color: #00ff00;
+  margin-bottom: 10px;
+}
