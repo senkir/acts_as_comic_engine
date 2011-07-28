@@ -537,17 +537,42 @@ body.two-col #content {
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
-  background-color: blue;
 }
 
-/* line 20, ../../app/stylesheets/screen.sass */
+/* line 19, ../../app/stylesheets/screen.sass */
 #content {
   text-align: center;
-  background-color: red;
+  clear: both;
+  background-color: #91856c;
 }
 
-/* line 25, ../../app/stylesheets/screen.sass */
+/* line 22, ../../app/stylesheets/screen.sass */
+#navigation {
+  width: 950px;
+  text-align: center;
+  background-color: #c9bb9b;
+}
+/* line 26, ../../app/stylesheets/screen.sass */
+#navigation .first {
+  float: left;
+}
+/* line 28, ../../app/stylesheets/screen.sass */
+#navigation .previous {
+  float: left;
+}
+/* line 30, ../../app/stylesheets/screen.sass */
+#navigation .next {
+  float: right;
+}
+/* line 32, ../../app/stylesheets/screen.sass */
+#navigation .last {
+  float: right;
+}
+
+/* line 35, ../../app/stylesheets/screen.sass */
 #footer {
-  background-color: lime;
+  text-align: center;
+  background-color: #c9bb9b;
+  font-size: small;
   margin-bottom: 10px;
 }

@@ -1,6 +1,7 @@
 ActiveAdmin.register AdminUser do
   menu :label => "Users"
   index do
+    column :displayname
     column :email
     column :is_admin
     column :current_sign_in_at
@@ -8,7 +9,7 @@ ActiveAdmin.register AdminUser do
     column :sign_in_count
     column "Avatar" do |user|
       if user.avatar != nil
-        link_to image_tag(user.avatar.image.thumb.url), admin_avatar_path(user.id)
+        link_to image_tag(user.avatar.image.thumb.url), admin_avatar_path(user.avatar.id)
       end
     end
     default_actions

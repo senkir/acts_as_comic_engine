@@ -7,11 +7,19 @@ $blueprint-grid-margin: 10px
 
 $blue: #0000ff
 $red: #ff0000
+$table_body: #91856C
+$navigation: #C9BB9B
+
 // Use this to calculate the width based on the total width.
 // Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin
 
-@mixin table-base 
- text-align: center
+@mixin table_base 
+  text-align: center
+  clear: both
+  background-color: $table_body
 
-
+@mixin list_item
+  text-align: center
+  background-color: $navigation
+ 

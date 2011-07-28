@@ -1,0 +1,16 @@
+.panel
+  %h3 Avatar Details
+  .panel.contents
+    .attributes_table.avatar
+      %table
+        %tr
+          %th user
+          %td
+            - if avatar.admin_user != nil
+              = avatar.admin_user.displayname
+            - else
+              no owner
+        %tr 
+          %th image
+          %td
+            = image_tag avatar.image.url

@@ -1,8 +1,8 @@
+- page = locals[:page]
+%h2
+  = page.title
 = render "pages/navigation"
 %br
-- page = locals[:page]
 #page
-  .page.header
-    = page.title
   .page.image
   = image_tag page.image.url

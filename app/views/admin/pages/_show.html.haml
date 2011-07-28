@@ -1,8 +1,19 @@
-%h1
-  = page.comic.title
-  %br 
-%h2
-  = page.title + " : "
-  = "# " + page.sequence.to_s
-%br
-  = image_tag(page.image.url)
+.panel
+  %h3
+    Page Details
+  .panel.contents
+    .attributes_table.page
+      %table{ :border => "0", :cellspacing => "0", :cellpadding => "0" }
+        %tbody
+          %tr
+            %th Title
+            %td 
+              = page.title
+          %tr
+            %th Sequence
+            %td
+              = page.sequence.to_s
+          %tr
+            %th Image
+            %td
+              = image_tag(page.image.url)

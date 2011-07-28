@@ -1,23 +1,39 @@
-%h1
-  User
-  %br
-Display Name: 
-= admin_user.displayname
-%br
-Email: 
-= admin_user.email
-%br
-Sign In Count: 
-= admin_user.sign_in_count
-%br
-Last Sign In: 
-= admin_user.last_sign_in_at
-%br
-Current Sign In:
-= admin_user.current_sign_in_at
-%br
-Avatar: 
-- if admin_user.avatar_image != nil
-  = image_tag(admin_user.avatar_image.url)
-- else
-  No Image :(
+.panel
+  %h3
+  Admin User Details
+  .panel.contents
+    .attributes_table.admin_user
+      %table
+        %tr
+          %th
+            Display Name
+          %td
+            = admin_user.displayname
+        %tr
+          %th
+            Email
+          %td
+            = admin_user.email
+        %tr
+          %th
+            Sign In Count
+          %td
+            = admin_user.sign_in_count
+        %tr
+          %th
+            Last Sign In
+          %td
+            = admin_user.last_sign_in_at
+        %tr
+          %th
+            Current Sign In
+          %td
+            = admin_user.current_sign_in_at
+        %tr
+          %th
+            Avatar
+          %td
+            - if admin_user.avatar.image != nil
+              = image_tag(admin_user.avatar.image.url)
+            - else
+              No Image :(

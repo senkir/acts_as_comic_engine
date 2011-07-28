@@ -14,14 +14,25 @@
 
 #container
   @include container
-  background-color: $blue
   
 
 #content
-  @include table-base
-  background-color: $red
-  
+  @include table_base
+
+#navigation
+  width: $blueprint-container-size
+  @include list_item
+  //  clear: none
+  .first
+    float: left
+  .previous
+    float: left
+  .next
+    float: right
+  .last
+    float: right
 
 #footer
-  background-color: #00ff00
+  @include list_item
+  font-size: small
   margin-bottom: 10px
