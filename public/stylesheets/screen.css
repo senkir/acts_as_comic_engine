@@ -57,7 +57,7 @@ a img {
   border: none;
 }
 
-/* line 9, ../../app/stylesheets/partials/_page.scss */
+/* line 9, ../../app/stylesheets/partials/_page.sass */
 body.bp {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -493,25 +493,22 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 25, ../../app/stylesheets/partials/_two_col.scss */
+/* line 25, ../../app/stylesheets/partials/_two_col.sass */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
-}
-/* line 27, ../../app/stylesheets/partials/_two_col.scss */
-body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 950px;
 }
 /* line 147, ../../../../../../../Users/travischurchill/.rvm/gems/ruby-1.9.2-p180-patched/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body.two-col #header, * html body.two-col #footer {
+* html body.two-col #container {
   overflow-x: hidden;
 }
-/* line 29, ../../app/stylesheets/partials/_two_col.scss */
+/* line 29, ../../app/stylesheets/partials/_two_col.sass */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -522,7 +519,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 33, ../../app/stylesheets/partials/_two_col.scss */
+/* line 33, ../../app/stylesheets/partials/_two_col.sass */
 body.two-col #content {
   display: inline;
   float: left;
@@ -534,7 +531,7 @@ body.two-col #content {
   overflow-x: hidden;
 }
 
-/* line 15, ../../app/stylesheets/screen.scss */
+/* line 15, ../../app/stylesheets/screen.sass */
 #container {
   width: 950px;
   margin: 0 auto;
@@ -543,14 +540,14 @@ body.two-col #content {
   background-color: blue;
 }
 
-/* line 19, ../../app/stylesheets/screen.scss */
+/* line 20, ../../app/stylesheets/screen.sass */
 #content {
   text-align: center;
   background-color: red;
 }
 
-/* line 24, ../../app/stylesheets/screen.scss */
+/* line 25, ../../app/stylesheets/screen.sass */
 #footer {
-  background-color: #00ff00;
+  background-color: lime;
   margin-bottom: 10px;
 }
