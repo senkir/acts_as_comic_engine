@@ -6,7 +6,7 @@ class Comic < ActiveRecord::Base
   has_one :blog
   belongs_to :owner, :class_name => 'AdminUser'
   
-  attr_accessible :title, :shortname
+  attr_accessible :title, :shortname, :has_blog
   accepts_nested_attributes_for :pages, :comic_assets, :blog, :contributors, :owner
   validates_presence_of :title, :shortname
   validates_uniqueness_of :title, :shortname
@@ -31,7 +31,7 @@ class Comic < ActiveRecord::Base
   end
   
   
-  #users must have at least one blog defined
+  #comics must have one blog defined
   def autocreate_blog 
     @blog = self.build_blog
     @blog.is_default = true

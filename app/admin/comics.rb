@@ -33,10 +33,20 @@ ActiveAdmin.register Comic do
         li "no image"
       end
     end
+    column "Blog Enabled" do |comic|
+      if comic.has_blog
+        "yes"
+      else
+        "no"
+      end
+    end
     column :blog
     default_actions
   end
   
+  show do
+    render "show"
+  end
   #New / Update
   # form do
     #TODO:  the form for a new comic should autopopulate the owner to be self

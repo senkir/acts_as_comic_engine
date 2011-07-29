@@ -1,0 +1,8 @@
+- admin_user = locals[:user]
+.admin_user
+  = admin_user.displayname
+  %br
+  - if admin_user.avatar.image != nil
+    = image_tag(admin_user.avatar.image.resized.url)
+  - else
+    No Image :(
