@@ -1,9 +1,12 @@
+- page = locals[:page]
 #navigation
-  .first
-    = image_tag "page_images/first.jpg"
-  .previous
-    = image_tag "page_images/previous.jpg"
-  .next
-    = image_tag "page_images/next.jpg"
-  .last
-    = image_tag "page_images/today.jpg"
+  - if page.sequence > 1
+    .first
+    = link_to (image_tag "page_images/first.jpg"), comic_page_path(page.comic, page.comic.first_page.id)
+    .previous
+      = image_tag "page_images/previous.jpg"
+  - if page.is_last == false
+    .next
+      = link_to (image_tag "page_images/next.jpg"), comic_page_path(page.comic, page.next.id)
+    .last
+    = link_to (image_tag "page_images/today.jpg"), comic_page_path(page.comic, page.comic.last_page.id)

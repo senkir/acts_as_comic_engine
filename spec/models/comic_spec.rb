@@ -49,7 +49,7 @@ describe Comic do
   it "should only return pages which are visible to the user" do
     @page = @comic.new_page
     @page.save
-    @comic.visible_pages.should == nil
+    @comic.visible_pages.empty?.should == true
     @page.is_shown = true
     @page.save
     @comic.visible_pages.should_not == nil

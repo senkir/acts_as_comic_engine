@@ -6,7 +6,7 @@ class Comic < ActiveRecord::Base
   has_one :blog
   belongs_to :owner, :class_name => 'AdminUser'
   
-  attr_accessible :title, :shortname, :has_blog, :owner_id, :contributor_ids
+  attr_accessible :title, :shortname, :has_blog, :owner_id, :contributor_ids, :pages
   accepts_nested_attributes_for :pages, :comic_assets, :blog, :contributors, :owner
   validates_presence_of :title, :shortname
   validates_uniqueness_of :title, :shortname
@@ -25,11 +25,15 @@ class Comic < ActiveRecord::Base
     Page.find_all_by_comic_id_and_is_shown(self.id, 1, :order => :sequence)
   end
   
-  #returns the last in sequence
+  #returns the last visible page in sequence or nil
   def last_page
     self.visible_pages.last if self.visible_pages != nil
   end
   
+  #returns the first visible page in sequence or nil
+  def first_page
+    self.visible_pages.first if self.visible_pages != nil
+  end
   
   #comics must have one blog defined
   def autocreate_blog 

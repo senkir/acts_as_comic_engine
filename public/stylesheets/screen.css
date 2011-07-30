@@ -539,37 +539,43 @@ body.two-col #content {
   *zoom: 1;
 }
 
-/* line 19, ../../app/stylesheets/screen.sass */
+/* line 18, ../../app/stylesheets/screen.sass */
 #content {
   text-align: center;
   clear: both;
   background-color: #91856c;
 }
 
-/* line 22, ../../app/stylesheets/screen.sass */
+/* line 21, ../../app/stylesheets/screen.sass */
 #navigation {
   width: 950px;
   text-align: center;
   background-color: #c9bb9b;
 }
-/* line 26, ../../app/stylesheets/screen.sass */
+/* line 25, ../../app/stylesheets/screen.sass */
 #navigation .first {
   float: left;
 }
-/* line 28, ../../app/stylesheets/screen.sass */
+/* line 27, ../../app/stylesheets/screen.sass */
 #navigation .previous {
   float: left;
 }
-/* line 30, ../../app/stylesheets/screen.sass */
+/* line 29, ../../app/stylesheets/screen.sass */
 #navigation .next {
   float: right;
 }
-/* line 32, ../../app/stylesheets/screen.sass */
+/* line 31, ../../app/stylesheets/screen.sass */
 #navigation .last {
   float: right;
 }
 
-/* line 35, ../../app/stylesheets/screen.sass */
+/* line 34, ../../app/stylesheets/screen.sass */
+.comic.header {
+  text-align: center;
+  background-color: #c9bb9b;
+}
+
+/* line 37, ../../app/stylesheets/screen.sass */
 #footer {
   text-align: center;
   background-color: #c9bb9b;

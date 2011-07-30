@@ -1,6 +1,6 @@
 .panel
   %h3
-    Comic Details
+    General Comic Details
   .panel.contents
     .attributes_table.comic
       %table{ :border => "0", :cellspacing => "0", :cellpadding => "0" }
@@ -20,21 +20,10 @@
                 yes
               - else
                 no
-= render "admin/admin_users/show_small", :locals => {:user => comic.owner, :table_header => "Owner" }
-= render "contributor_list", :locals => {:comic => comic}
-
-- @count = Page.find_all_by_comic_id(comic.id).count
-.panel
-  %h3
-    Recent Activity
-  .panel.contents
-    .attributes_table.comic
-      %table{ :border => "0", :cellspacing => "0", :cellpadding => "0" }
-        %tbody
           %tr
             %th PAGES
             %td 
-              = @count
+              = Page.find_all_by_comic_id(comic.id).count
           %tr
             %th LAST VISIBLE PAGE
             %td
@@ -51,3 +40,5 @@
                 = link_to image_tag(last_page.image.thumb.url), admin_page_path(last_page.id)
               - elsif
                 no image
+= render "admin/admin_users/show_small", :locals => {:user => comic.owner, :table_header => "Owner" }
+= render "contributor_list", :locals => {:comic => comic}

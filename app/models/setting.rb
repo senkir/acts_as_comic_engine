@@ -3,7 +3,11 @@ class Setting < ActiveRecord::Base
 
   def self.value_for_name name
     @setting = Setting.find_by_setting_name(name)
-    @setting.setting_value
+    if @setting != nil
+      @setting.setting_value
+    else
+      nil
+    end
   end
   
   def self.enabled_for_name name

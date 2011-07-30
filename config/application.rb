@@ -42,5 +42,11 @@ module Spidermuffin
     config.generators do |g|
       g.template_engine :haml
     end
+    
+    # if Rails.env.test? 
+    #   initializer :after => :initialize_dependency_mechanism do 
+    #     ActiveSupport::Dependencies.mechanism = :load 
+    #   end 
+    # end
   end
 end

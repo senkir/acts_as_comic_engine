@@ -1,7 +1,7 @@
 - page = locals[:page]
 %h2
   = page.title
-= render "pages/navigation"
+= render "pages/navigation", :locals => {:page => page}
 %br
 #page
   .page.image

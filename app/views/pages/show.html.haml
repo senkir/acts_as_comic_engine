@@ -1,1 +1,6 @@
-The show page is where we go if we are on anything but the most recent page in a comic.
+- page = Page.find(params[:id])
+= render "main/header"
+= render "comics/header", :locals => {:comic => page.comic}
+#content
+  The show page is where we go if we are on anything but the most recent page in a comic.
+  = render "single", :locals => {:page => page}
