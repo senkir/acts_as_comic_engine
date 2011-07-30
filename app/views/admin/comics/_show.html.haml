@@ -14,19 +14,40 @@
             %td
               = comic.shortname
           %tr
-            %th OWNER
+            %th BLOG ENABLED
             %td
-              = render "admin/admin_users/show_small", :locals => {:user => comic.owner }
-          %tr
-            %th CONTRIBUTORS
-            %td
-              = comic.contributors.count
-              - if comic.contributors != nil || comic.contributors.count < 1
-                - comic.contributors.each do |user|
-                  = image_tag user.avatar.image.thumb.url
+              - if comic.has_blog = 1
+                yes
               - else
-                NO CONTRIBUTORS
+                no
+= render "admin/admin_users/show_small", :locals => {:user => comic.owner, :table_header => "Owner" }
+= render "contributor_list", :locals => {:comic => comic}
+
+- @count = Page.find_all_by_comic_id(comic.id).count
+.panel
+  %h3
+    Recent Activity
+  .panel.contents
+    .attributes_table.comic
+      %table{ :border => "0", :cellspacing => "0", :cellpadding => "0" }
+        %tbody
           %tr
-            %th ACTIONS
+            %th PAGES
+            %td 
+              = @count
+          %tr
+            %th LAST VISIBLE PAGE
             %td
-              = render "admin/comics/contributor_form", :locals => {:comic => comic }
+              - last_visible = comic.last_page
+              - if last_visible != nil
+                = link_to image_tag(last_visible.image.thumb.url), admin_page_path(last_visible.id)
+              - else
+                no image
+          %tr
+            %th LAST UPLOADED PAGE
+            %td
+              - last_page = comic.pages.last
+              - if last_page != nil
+                = link_to image_tag(last_page.image.thumb.url), admin_page_path(last_page.id)
+              - elsif
+                no image

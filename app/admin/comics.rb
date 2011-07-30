@@ -43,15 +43,17 @@ ActiveAdmin.register Comic do
     column :blog
     default_actions
   end
-  
+    
   show do
     render "show"
   end
   #New / Update
-  # form do
-    #TODO:  the form for a new comic should autopopulate the owner to be self
-    #end
+  form :partial => "form", :locals => {:comic => @comic}
     
     #TODO:  need the ability to add contributors to a comic
+    def add_contributor
+    end
     
+    def remove_contributor
+    end
 end

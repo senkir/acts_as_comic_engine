@@ -6,7 +6,7 @@ class Comic < ActiveRecord::Base
   has_one :blog
   belongs_to :owner, :class_name => 'AdminUser'
   
-  attr_accessible :title, :shortname, :has_blog
+  attr_accessible :title, :shortname, :has_blog, :owner_id, :contributor_ids
   accepts_nested_attributes_for :pages, :comic_assets, :blog, :contributors, :owner
   validates_presence_of :title, :shortname
   validates_uniqueness_of :title, :shortname

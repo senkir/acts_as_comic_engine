@@ -1,0 +1,15 @@
+- comic = locals[:comic]
+.panel
+  %h3 Contributors
+  .panel.contents
+    %table{ :border => "0", :cellspacing => "0", :cellpadding => "0" }
+      %tbody
+      - if comic.contributors.count > 0
+        - comic.contributors.each do |contributor|
+          %tr
+            %th 
+              = contributor.displayname
+            %td 
+              = image_tag contributor.avatar.image.resized.url
+      - else
+        No Contributors

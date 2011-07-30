@@ -1,0 +1,10 @@
+= semantic_form_for [:admin, @comic] do |f| 
+  = f.inputs :name => "General" do
+    = f.input :title
+    = f.input :shortname
+    = f.input :has_blog, :as => :radio
+    = f.input :owner_id, :as => :select, :collection => AdminUser.all, :label_method => :displayname, :include_blank => false
+    = render "contributor_list", :locals => {:comic => @comic}
+    = f.input :contributors, :label_method => :displayname
+  = f.buttons :commit
+%br
